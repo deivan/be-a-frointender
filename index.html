@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Types, functions, closures</title>
+</head>
+<body>
+  <script>
+    // Closures
+    function count1() {
+      let counter = 0;
+      return function () {
+        return counter++;
+      }
+    }
+    // let count = count1()
+
+    // 1ST copy case
+    let obj1 = { a: 1, b: [1,2,3], c: { d: 'ddd' }};
+    let copy0 = obj1;
+    console.log('1st case:', copy0 === obj1)
+
+    // 2ND 
+    let copy1 = JSON.parse(JSON.stringify(obj1))
+    console.log('2nd case:', copy1 === obj1)
+
+  </script>
+  
+</body>
+</html>
