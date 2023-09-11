@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Let's work with strings</title>
+    <style>
+        .template {
+            padding: 1em;
+            border: 1px solid #008;
+            width: 10em;
+        }
+        .container {
+            padding: 1em;
+            background-color: #eee;
+            border-radius: .125em;
+            margin-top: .5em;
+            width: 20em;
+        }
+        .container .line {
+            display: flex;
+            align-items: center;
+        }
+    </style>
+</head>
+<body>
+    <div class="container" id="container"></div>
+    <div class="container">
+        <div class="line">
+            <label>Input text:</label>
+            <input id="inputText" />
+        </div>
+        <button id="reverse">Reverse</button>
+        <button id="upper">Upper Case</button>
+        <button id="lower">Lower Case</button>
+    </div>
+    <div class="container" id="result"></div>
+
+    <script>
+        let str1 = 'Lorem ipsum dolor, sit amet consectetur adipisicing elit. Est vero dicta quia dolorem quidem nostrum cumque repellat numquam libero? Tempore, accusantium? Assumenda aperiam voluptates optio, et perferendis unde sapiente expedita.';
+        let arr1 = [ 'So', 'me ', 'p', 'eople a', 're ', 'think', 'ing', 'what the', 'y are think' ];
+        let arrayOfObjects = [
+            { fullName: 'Peter Griffin', age: 45, email: 'peter@mail.com' },
+            { fullName: 'Bart Simpson', age: 9, email: 'karamba@mail.com' },
+            { fullName: 'Robert Squarepants', age: 16, email: 'imagination@mail.com' },
+            { fullName: 'Leela Turanga', age: 35, email: 'leelaleela@mail.com' },
+        ];
+
+        function getBlock(name, city) {
+            let tmpl1 = `
+                <div class="template">
+                    Hello, ${name}!<br>
+                    You came from ${city}, right?
+                </div>
+            `;
+            return tmpl1;
+        }
+
+        window.addEventListener('load', () => {
+            const inputVal = document.querySelector('#inputText').value;
+
+            document.querySelector('#reverse').addEventListener('click', () => {
+                console.log('reverse');
+            });
+            document.querySelector('#upper').addEventListener('click', () => {
+                console.log('upper');
+            });
+            document.querySelector('#lower').addEventListener('click', () => {
+                console.log('lower');
+            });
+        });
+    </script>
+</body>
+</html>
