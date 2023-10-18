@@ -4,17 +4,28 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Let starts with Vue 3</title>
+    <link rel="stylesheet" href="styles.css" />
   </head>
   <body>
     <div id="container">
-      <p>{{ message }}</p>
-      <input v-model="message" /><br>
-      <!--<input type="checkbox" v-model="showIt" />
-      <p v-if="showIt">That tex started hidden.</p>
-      <p v-show="message.length > 5">This is v-show worked.</p>
-      <ul>
-        <li v-for="(item, i) in arr" :key="i">{{ item }}</li>
-      </ul> -->
+      <div class="sidebar">
+        <div class="line">
+          <label>First name:</label>
+          <input placeholder="Enter first name" />
+        </div>
+        <div class="line">
+          <label>Last name:</label>
+          <input placeholder="Enter last name" />
+        </div>
+        <div class="line">
+          <label>Email:</label>
+          <input placeholder="Enter email" />
+        </div>
+        <div class="button-line">
+          <button>Submit</button>
+        </div>
+      </div>
+      <div class="sidebar"></div>
     </div>
     <script src="https://unpkg.com/vue@3/dist/vue.global.js"></script>
     <script>
@@ -22,15 +33,9 @@
 
       createApp({
         setup() {
-          const message = ref('')
-          // const rawHtml = ref('<h1>Test</h1>')
-          // const showIt = ref(false)
-          // const arr = ref([111,222,333333,44444444])
+
           return {
-            message,
-            // rawHtml,
-            // showIt,
-            // arr
+
           }
         }
       }).mount('#container')

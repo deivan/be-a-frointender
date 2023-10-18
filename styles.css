@@ -1,0 +1,40 @@
+body {
+    background-color: rgb(165, 227, 245);
+    font-size: 16px;
+}
+
+#container {
+    width: 75%;
+    min-height: 300px;
+    margin: 5% auto;
+    padding: 1em;
+    border: 1px solid black;
+    border-radius: .25em;
+    background-color: beige;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    grid-gap: 1em;
+}
+
+.sidebar {
+    display: flex;
+    flex-direction: column;
+}
+.result {
+    border: 1px dotted #008;
+}
+
+.line {
+    display: flex;
+    align-items: center;
+    height: 2em;
+}
+.line label {
+    min-width: 25%;
+    font-weight: 700;
+}
+.button-line {
+    margin: .5em 0;
+    display: flex;
+    align-items: center;
+}
