@@ -1,39 +1,34 @@
-//console.log(process)
-//console.log(process.argv)
-//console.log(process.env)
+// const http = require("http");
 
-const os = require('os');
-// https://nodejs.org/api/os.html
+// const host = '127.0.0.1';
+// const port = 8000;
 
-const path = require('path');
-// https://nodejs.org/en/learn/manipulating-files/nodejs-file-paths
+// const serverListener = (req, res) => {
+//   console.log('got request', req);
+//   res.writeHead(200);
+//   res.end('Your response');
+// }
 
-const fs = require('fs').promises;
+// const server = http.createServer(serverListener);
 
-async function readFile(filePath) {
-  try {
-    const data = await fs.readFile(filePath);
-    console.log(data.length, data[0], data);
-  } catch (error) {
-    console.error(`Got an error trying to read the file: ${error.message}`);
-  }
-}
+// server.listen(port, host, () => {
+//   console.log('server started at port ' + port)
+// });
 
-async function createFile(name, data) {
-  try { 
-      await fs.appendFile(name, data, { flag: 'w' });
-      console.log(`Appended data to ${name}`); 
-    } catch (error) { 
-      console.error(`Got an error trying to append the file: ${error.message}`); 
-    } 
-}
+const express = require('express')
+const app = express()
+const port = 8000
+const router = require('./router')
 
-// console.time('bunch-of-stuff');
-// console.timeEnd('bunch-of-stuff');
+const JSONexample = { a:1, bb:222, cc: [1,1,2,2,3], d: { a: 'AAAA' }};
 
-//readFile('1111.jpg');
+app.use(express.static('public'))
+app.use(router)
 
-//createFile('test.txt', 'A some text was added here')
+app.get('/', (req, res) => {
+  res.send('Hello World!')
+})
 
-// require('dotenv').config();
-// https://nodejs.org/en/learn/command-line/how-to-read-environment-variables-from-nodejs
+app.listen(port, () => {
+  console.log(`Example app listening on port ${port}`)
+})
