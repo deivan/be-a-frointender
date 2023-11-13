@@ -30,7 +30,7 @@
     margin: 0 5px;
     padding: 5px 10px;
     cursor: pointer;
-    background-color: #3498db;
+    background-color: #ffffff;
     color: #fff;
     border: none;
     border-radius: 3px;

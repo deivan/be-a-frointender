@@ -29,7 +29,7 @@
   }
   
   h2 {
-    color: #3498db;
+    color: #ffffff;
   }
   
   ul {
@@ -46,7 +46,7 @@
   }
   
   a {
-    color: #3498db;
+    color: #ffffff;
     text-decoration: none;
   }
   
