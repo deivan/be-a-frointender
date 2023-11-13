@@ -63,5 +63,6 @@ export default {
   font-family: Avenir, Helvetica, Arial, sans-serif;
   text-align: center;
   color: #ffffff;
+
 }
 </style>

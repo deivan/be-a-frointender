@@ -72,7 +72,7 @@ export default {
 
 <style>
 .container {
-  width: 1000px;
+  width: 100px;
   display: flex;
 }
 
