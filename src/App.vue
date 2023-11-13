@@ -1,47 +1,67 @@
-<script setup>
-import HelloWorld from './components/HelloWorld.vue'
-import TheWelcome from './components/TheWelcome.vue'
-</script>
 
 <template>
-  <header>
-    <img alt="Vue logo" class="logo" src="./assets/logo.svg" width="125" height="125" />
-
-    <div class="wrapper">
-      <HelloWorld msg="You did it!" />
-    </div>
-  </header>
-
-  <main>
-    <TheWelcome />
-  </main>
+  <div id="app">
+    <spaceship-list :spaceships="currentSpaceships" @page-change="loadSpaceships" @view-pilots="openPilotModal" />
+    <pilot-modal v-if="selectedPilots.length > 0" :pilots="selectedPilots" @close="clearSelectedPilots" />
+  </div>
 </template>
 
-<style scoped>
-header {
-  line-height: 1.5;
-}
+<script>
+import axios from 'axios';
+import SpaceshipList from "@/components/SpaceshipList.vue";
+import PilotModal from "@/components/PilotModal.vue";
 
-.logo {
-  display: block;
-  margin: 0 auto 2rem;
-}
+export default {
+  name: "App",
+  components: {
+    SpaceshipList,
+    PilotModal,
+  },
+  data() {
+    return {
+      spaceships: [],
+      currentPage: 1,
+      itemsPerPage: 5,
+      selectedPilots: [],
+    };
+  },
+  computed: {
+    totalSpaceships() {
+      return this.spaceships.length;
+    },
+    totalPages() {
+      return Math.ceil(this.totalSpaceships / this.itemsPerPage);
+    },
+    currentSpaceships() {
+      const start = (this.currentPage - 1) * this.itemsPerPage;
+      const end = start + this.itemsPerPage;
+      return this.spaceships.slice(start, end);
+    },
+  },
+  methods: {
+    async loadSpaceships(newPage) {
+      try {
+        const response = await axios.get(`https://swapi.dev/api/starships/?page=${newPage}`);
+        this.spaceships = response.data.results;
+        this.currentPage = newPage;
+      } catch (error) {
+        console.error('Помилка при отриманні даних космічних кораблів:', error);
+      }
+    },
+    openPilotModal(pilots) {
+      this.selectedPilots = pilots;
+    },
+    clearSelectedPilots() {
+      this.selectedPilots = [];
+    },
+  },
+};
+</script>
 
-@media (min-width: 1024px) {
-  header {
-    display: flex;
-    place-items: center;
-    padding-right: calc(var(--section-gap) / 2);
-  }
-
-  .logo {
-    margin: 0 2rem 0 0;
-  }
-
-  header .wrapper {
-    display: flex;
-    place-items: flex-start;
-    flex-wrap: wrap;
-  }
+<style>
+#app {
+  font-family: Avenir, Helvetica, Arial, sans-serif;
+  text-align: center;
+  color: #2c3e50;
 }
 </style>
