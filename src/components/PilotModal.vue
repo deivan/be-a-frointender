@@ -30,7 +30,7 @@
   };
   </script>
   
-  <!-- Стилізуйте за потреби -->
+
   <style scoped>
   .pilot-modal {
     position: fixed;
