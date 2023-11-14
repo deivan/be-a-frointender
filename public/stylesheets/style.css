@@ -1,0 +1,27 @@
+body {
+  padding: 50px;
+  font: 14px "Lucida Grande", Helvetica, Arial, sans-serif;
+}
+
+a {
+  color: #00B7FF;
+}
+
+.header {
+  height: 4em;
+  background-color: blue;
+  color: white;
+}
+.header h1 {
+  font-size: 2em;
+}
+
+.footer {
+  height: 4em;
+  background-color: purple;
+  color: yellow;
+}
+
+p.user strong, p.user span, p.user.em {
+  margin-right: .5em;
+}

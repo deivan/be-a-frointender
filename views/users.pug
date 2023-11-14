@@ -1,0 +1,12 @@
+extends layout
+
+block content
+  h1 Users page
+  each user in users
+    p.user 
+      strong First Name: 
+      span=user.firstName 
+      strong Last Name: 
+      span= user.lastName 
+      em Role 
+      span= user.role
