@@ -62,7 +62,7 @@ export default {
 #app {
   font-family: Avenir, Helvetica, Arial, sans-serif;
   text-align: center;
-  color: #ffffff;
+  color: #a06cdf;
 
 }
 </style>
