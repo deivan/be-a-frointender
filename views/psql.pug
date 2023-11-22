@@ -2,5 +2,9 @@ extends layout
 
 block content
   h1 There  is Postgres zone
+  p
+    a(href="/psql") Show all
+  p
+    a(href="/psql-insert?firstname=11111&lastname=2222") Insert one
   p Let's data will be here
   p= JSON.stringify(data)

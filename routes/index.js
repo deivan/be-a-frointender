@@ -13,12 +13,54 @@ router.get('/', function(req, res, next) {
 router.get('/psql', async function(req, res, next) {
   let data = null;
   try {
-    //data = await client.query("SELECT * FROM users");
+    data = await client.query("SELECT * FROM users ORDER BY id");
     //console.log(data);
   } catch (error) {
     console.error(error);
   }
-  res.render('psql', { data });
+  res.render('psql', { data: data.rows });
+});
+
+router.get('/psql-insert', async function(req, res, next) {
+  let firstname = req.query.firstname;
+  let lastname = req.query.lastname;
+  let data;
+  try {
+    data = await client.query("INSERT INTO users (firstname, lastname, role) VALUES ($1, $2, 0)",
+    [firstname, lastname]);
+    //console.log(data);
+  } catch (error) {
+    console.error(error);
+  }
+  res.render('psql', { data: data });
+});
+
+router.get('/psql-update', async function(req, res, next) {
+  let firstname = req.query.firstname;
+  let lastname = req.query.lastname;
+  let id = req.query.id;
+  let data;
+  try {
+    data = await client.query("UPDATE users SET firstname = $1, lastname = $2 WHERE id = $3",
+    [firstname, lastname, id]);
+    //console.log(data);
+  } catch (error) {
+    console.error(error);
+  }
+  res.render('psql', { data: data });
+});
+
+router.get('/psql-delete', async function(req, res, next) {
+  let data = null;
+  try {
+    data = await client.query("SELECT * FROM users ORDER BY id");
+    let lastId = data.rows.length;
+    console.log(lastId);
+    data = await client.query("DELETE FROM users WHERE id = $1", [lastId]);
+  } catch (error) {
+    console.error(error);
+  }
+  res.render('psql', { data: data.rows });
 });
 
 module.exports = router;
