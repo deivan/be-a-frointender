@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Custom HTML Element</title>
+</head>
+<body>
+    <style>
+        .container {
+            padding: 1em;
+            margin: 1em auto;
+            min-height: 4em;
+            width: 75%;
+            border: 1px solid #ccc;
+        }
+    </style>
+    <script src="CustomElement.js"></script>
+    <div class="container">
+        <custom-element></custom-element>
+    </div>
+    <script>
+        customElements.define("custom-element", CustomElement);
+    </script>
+</body>
+</html>
