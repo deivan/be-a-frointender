@@ -1,10 +1,10 @@
-<script setup>
+<script setup async>
   import LeftPanel from './components/LeftPanel.vue';
   import RightPanel from './components/RightPanel.vue';
 
-  import { reactive } from 'vue';
+  import { ref, onMounted } from 'vue';
 
-  let data = getData();
+  const data = ref([]);
 
   async function getData() {
     let res = await fetch('https://swapi.dev/api/people/');
@@ -12,6 +12,10 @@
 
     return result.results;
   }
+
+  onMounted(async () => {
+    data.value = await getData();
+  })
 
 </script>
 
