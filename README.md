@@ -30,5 +30,5 @@
 # Тема 9. Node.js і бази даних
 Початок роботи з MongoDB. Додавання даних до MongoDB. Отримання даних у MongoDB. Видалення документів у MongoDB. Оновлення документів у MongoDB. Express та MongoDB. Mongoose. Визначення схеми у Mongoose. CRUD у Mongoose. Робота з базою Postgres. Основи мови SQL
 
-# Тема 10. GraphQL API Server в Node.js
-Налаштування GraphQL HTTP Server Middleware, Використання GraphiQL IDE, Запит GraphQL API від клієнта
+# Тема 10. TypeScript
+...
